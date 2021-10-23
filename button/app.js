@@ -33,12 +33,6 @@ function onGet(request, response) {
       response.end(data);
       });
   }
-  if (request.url.includes('lib') || request.url.includes('img')) {
-    tryReadFile(__dirname + '/..' + request.url, (data)=> {
-      response.statusCode = 200;
-      response.end(data);
-      });
-  }
   else {
     tryReadFile(__dirname + request.url, (data)=> {
       response.statusCode = 200;
