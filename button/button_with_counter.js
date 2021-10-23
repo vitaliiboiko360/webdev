@@ -5,17 +5,14 @@
 class ButtonWithCounter extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { clicked: false };
-        this.counter = 0;
+        this.state = { clicked: false, counter: 0 };
     }
     
     render() {
         return e(
             'button',
-            { onClick: function() {
-                this.setState({ clicked: true });
-            } },
-            'TEST'
+            { onClick: () => this.setState({clicked: true, counter: this.state.counter + 1}) },
+            (this.state.counter == 0) ? 'TEST' : 'TEST' + this.state.counter
         );
     }
 }
