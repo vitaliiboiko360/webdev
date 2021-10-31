@@ -2,17 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-function Square(props) {
-  return (
-    <button 
-    className="square" 
-    onClick={props.onClick}
-    >
-      {props.value}
-    </button>
-  );
-}
-  
+import Square from './square.js' 
+
+const indices = [0,1,2];
+
 class Board extends React.Component {
   renderSquare(i) {
     return (
@@ -21,15 +14,15 @@ class Board extends React.Component {
         onClick={() => this.props.onClick(i)}
       />
       );
-  }
+  }  
   
   render() {
     return (
       <div>
         <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
+          {indices.map((element) => {
+            return <Square key={element} onClick={this.props.onClick(element)} value={this.props.squares[element]}/>
+          })}
         </div>
         <div className="board-row">
           {this.renderSquare(3)}
