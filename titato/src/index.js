@@ -18,11 +18,14 @@ function Board({onClick, squares}) {
   
   return (
     <div>
-      <div className="board-row">
-        {indices.map((element) => {
-          return <Square key={element} onClick={() => onClick(element)} value={squares[element]}/>
-        })}
-      </div>
+      {indices.map((rowIndex) => {
+        return (<div className="board-row">
+              {indices.map((element) => {
+                let columnElement = element  + (3 * rowIndex);
+                return <Square key={element} onClick={() => onClick(columnElement)} value={squares[columnElement]}/>
+              })}
+            </div>)
+      })}
       <div className="board-row">
         {renderSquare(3)}
         {renderSquare(4)}
