@@ -1,10 +1,20 @@
 class DataApi {
-    getArticles() {
+    constructor(rawData) {
+        this.rawData = rawData;
+    }
 
+    mapIntoObject(arr) {
+        return arr.reduce((acc, curr) => {
+            acc[curr.id] = curr;
+        }, {});
+    }
+
+    getArticles() {
+        return this.mapIntoObject(this.rawData.articles);
     }
 
     getAuthors() {
-
+        return this.mapIntoObject(this.rawData.authors);
     }
 }
 
