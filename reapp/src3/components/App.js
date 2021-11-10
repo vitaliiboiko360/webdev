@@ -16,6 +16,8 @@ class App extends React.Component {
         }
     }
     render() {
+        console.log(api.getArticles());
+        console.log(api.getAuthors());
         return (
             <ArticleList
                 articles={this.state.articles}
