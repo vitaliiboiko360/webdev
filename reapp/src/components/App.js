@@ -13,7 +13,7 @@ class App extends React.Component {
         this.state = {
             articles: api.getArticles(),
             authors: api.getAuthors(),
-        }
+        };
     }
     render() {
         console.log(api.getArticles());
