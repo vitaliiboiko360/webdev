@@ -13,7 +13,7 @@ const Article = (props) => {
             </div>
             <div>{article.body}</div>
         </div>
-    )
-}
+    );
+};
 
 export default Article;
