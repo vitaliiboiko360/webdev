@@ -1,10 +1,17 @@
 import React from 'react';
 
+const styles = {
+    article: {
+    paddingBottom: 5,
+    marginBottom: 5,
+    }
+}
+
 const Article = (props) => {
     const {article, author} = props;
     return (
         <div>
-            <div>{article.title}</div>
+            <div style={styles.article} >{article.title}</div>
             <div>{article.date}</div>
             <div>
                 <a href={author.website}>
