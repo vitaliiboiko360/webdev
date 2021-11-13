@@ -15,13 +15,14 @@ class App extends React.Component {
             authors: api.getAuthors(),
         };
     }
+    articleActions = {
+        lookupAuthor: authorId => this.state.authors[authorId],
+    };
     render() {
-        console.log(api.getArticles());
-        console.log(api.getAuthors());
         return (
             <ArticleList
                 articles={this.state.articles}
-                authors={this.state.authors}
+                articleActions={this.articleActions}
             />
         );
     }
