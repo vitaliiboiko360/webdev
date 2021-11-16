@@ -7,6 +7,7 @@ const config = {
       path.resolve('./node_modules'),
     ]
   },
+  mode: 'production',
   entry: ['babel-polyfill', './lib/renderers/dom.js'],
   output: {
     path: path.resolve(__dirname, 'public'),
