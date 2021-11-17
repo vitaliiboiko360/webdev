@@ -8,6 +8,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "NODE_PATH=./lib pm2 start lib/server.js --watch --interpreter babel-node",
+    "wdev": "set NODE_PATH=./lib&& nodemon --exec babel-node lib/server.js",
     "webpack": "webpack -w",
     "webpack-help": "webpack --help",
     "test": "jest --watch"
@@ -36,6 +37,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "nodemon": "^2.0.15",
     "pm2": "^5.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
