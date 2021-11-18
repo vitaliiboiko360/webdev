@@ -3,7 +3,12 @@ import ReactDOM from 'react-dom';
 
 import App from 'components/App';
 
+initialData = {
+  article: {},
+  authors: {},
+};
+
 ReactDOM.render(
-  <App />,
+  <App initialData={initialData} />,
   document.getElementById('root')
 );
