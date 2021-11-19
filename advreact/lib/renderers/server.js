@@ -17,10 +17,10 @@ const serverRender = async () => {
   };
 
   return {
-    initailMarkup: ReactDOMServer.renderToString(
+    initialMarkup: ReactDOMServer.renderToString(
       <App initialData={initialData} />
     ),
-    initaliData,
+    initialData,
   };
 };
 
