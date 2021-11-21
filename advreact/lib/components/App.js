@@ -5,10 +5,7 @@ import ArticleList from './ArticleList';
 import DataApi from 'state-api';
 
 class App extends React.Component {
-  state = {
-    articles: this.props.initialData.articles,
-    authors: this.props.initialData.authors,
-  };
+  state = this.props.store.getState();
   // async componentDidMount() {
   //   const resp = await axios.get('/data');
   //   const api = new DataApi(resp.data);
