@@ -48,7 +48,9 @@ const Article = (props) => {
 
 Article.propTypes = {
   article: PropTypes.shape({
-    date: PropTypes.string.isRequired
+    date: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
   })
 };
 
