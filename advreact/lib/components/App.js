@@ -6,6 +6,8 @@ import StateApi from 'state-api';
 
 import { createContext} from 'react';
 
+const storeContext = createContext({});
+
 class App extends React.Component {
   state = this.props.store.getState();
   // async componentDidMount() {
@@ -22,10 +24,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <ArticleList
-        articles={this.state.articles}
-        store={this.props.store}
-      />
+      <storeContext.Provider value={this.props.state}>  
+        <ArticleList
+          articles={this.state.articles}
+          store={this.props.store}
+        />
+      </storeContext.Provider>  
     );
   }
 }
