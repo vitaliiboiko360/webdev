@@ -31,9 +31,10 @@ const dateDisplay = (dateString) =>
   new Date(dateString).toDateString();
 
 const Article = (props) => {
-  const { article } = props;
-  const store = useContext(StoreContext);
+  const { article, store } = props;
+  const storeContext = useContext(StoreContext);
   const author = store.lookupAuthor(article.authorId);
+  console.log(storeContext.lookupAuthor(article.authorId));
   return (
     <div style={styles.article}>
       <div style={styles.title}>{article.title}</div>

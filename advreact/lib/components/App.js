@@ -23,6 +23,7 @@ class App extends React.Component {
       <StoreContext.Provider value={this.props.store}>  
         <ArticleList
           articles={this.state.articles}
+          store={props.store}
         />
       </StoreContext.Provider>  
     );

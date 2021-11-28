@@ -9,6 +9,7 @@ const ArticleList = (props) => {
         <Article
           key={article.id}
           article={article}
+          store={props.store}
         />
       )}
     </div>
