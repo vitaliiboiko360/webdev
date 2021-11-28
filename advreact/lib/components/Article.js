@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import StoreContext from './StoreContext';
+
 
 const styles = {
   article: {
@@ -28,7 +31,8 @@ const dateDisplay = (dateString) =>
   new Date(dateString).toDateString();
 
 const Article = (props) => {
-  const { article, store } = props;
+  const { article } = props;
+  const store = useContext(StoreContext);
   const author = store.lookupAuthor(article.authorId);
   return (
     <div style={styles.article}>

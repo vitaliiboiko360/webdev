@@ -2,11 +2,9 @@ import React from 'react';
 import axios from 'axios';
 
 import ArticleList from './ArticleList';
-import StateApi from 'state-api';
+import StoreContext from './StoreContext';
 
-import { createContext} from 'react';
 
-const storeContext = createContext({});
 
 class App extends React.Component {
   state = this.props.store.getState();
@@ -20,16 +18,13 @@ class App extends React.Component {
   //   }));
   // }
 
-  
-
   render() {
     return (
-      <storeContext.Provider value={this.props.state}>  
+      <StoreContext.Provider value={this.props.store}>  
         <ArticleList
           articles={this.state.articles}
-          store={this.props.store}
         />
-      </storeContext.Provider>  
+      </StoreContext.Provider>  
     );
   }
 }
