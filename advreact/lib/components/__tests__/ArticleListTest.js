@@ -27,7 +27,7 @@ describe('ArticleList', () => {
       />
     );
 
-    expect(wrapper.getElement().props.children.length).toBe(2);
+    expect(wrapper.find('Article').length).toBe(2);
 
     expect(wrapper.getElement()).toMatchSnapshot();
   });
