@@ -4,8 +4,6 @@ import axios from 'axios';
 import ArticleList from './ArticleList';
 import StoreContext from './StoreContext';
 
-
-
 class App extends React.Component {
   state = this.props.store.getState();
   // async componentDidMount() {
@@ -23,7 +21,7 @@ class App extends React.Component {
       <StoreContext.Provider value={this.props.store}>  
         <ArticleList
           articles={this.state.articles}
-          store={props.store}
+          store={this.props.store}
         />
       </StoreContext.Provider>  
     );
