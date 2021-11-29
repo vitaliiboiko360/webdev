@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 
 import ArticleList from './ArticleList';
 import StoreContext from './StoreContext';
