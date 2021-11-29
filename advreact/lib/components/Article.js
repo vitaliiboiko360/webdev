@@ -31,7 +31,8 @@ const dateDisplay = (dateString) =>
   new Date(dateString).toDateString();
 
 const Article = (props) => {
-  const { article } = props;
+  const { article, store } = props;
+  console.log(store);
   const storeContext = useContext(StoreContext);
   const author = storeContext.lookupAuthor(article.authorId);
   return (
@@ -56,6 +57,15 @@ Article.propTypes = {
     title: PropTypes.string.isRequired,
     body: PropTypes.string.isRequired,
   })
+};
+
+const ArticleContainer = (props) => {
+  const storeContext = useContext(StoreContext);
+  return <Article {...props} store={storeContext} />;
+};
+
+ArticleContainer.contextTypes = {
+  store: PropTypes.object,
 };
 
 export default Article;
