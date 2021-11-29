@@ -34,8 +34,6 @@ const Article = (props) => {
   const { article } = props;
   const storeContext = useContext(StoreContext);
   const author = storeContext.lookupAuthor(article.authorId);
-  //console.log(storeContext.lookupAuthor(article.authorId));
-  //console.log(JSON.stringify(storeContext));
   return (
     <div style={styles.article}>
       <div style={styles.title}>{article.title}</div>
