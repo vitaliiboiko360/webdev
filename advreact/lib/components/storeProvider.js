@@ -4,15 +4,16 @@ import { useContext } from 'react';
 import StoreContext from './StoreContext';
 
 const storeProvider = (Component) => {
-    const store = useContext(StoreContext);
-    const WithStore = (props) =>
-        <Component {...props} store={store} />;
-
+    const WithStore = (props) => {
+        const storeContext = useContext(StoreContext);
+        return <Component {...props} store={storeContext} />;
+    }
+  
     WithStore.contextTypes = {
         store: PropTypes.object,
     };
-
+  
     return WithStore;
-};
+  };
 
 export default storeProvider;
