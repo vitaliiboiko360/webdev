@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useContext } from 'react';
-import StoreContext from './StoreContext';
-
+import storeProvider from './storeProvider';
 
 const styles = {
   article: {
@@ -57,13 +55,15 @@ Article.propTypes = {
   })
 };
 
-const ArticleContainer = (props) => {
-  const storeContext = useContext(StoreContext);
-  return <Article {...props} store={storeContext} />;
-};
+// const ArticleContainer = (props) => {
+  
+//   return <Article {...props} store={storeContext} />;
+// };
 
-ArticleContainer.contextTypes = {
-  store: PropTypes.object,
-};
+// ArticleContainer.contextTypes = {
+//   store: PropTypes.object,
+// };
 
-export default ArticleContainer;
+//const ArticleContainer = storeProvider(Article);
+
+export default storeProvider(Article);
