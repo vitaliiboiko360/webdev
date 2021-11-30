@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import storeProvider from './storeProvider';
+import { useContext } from 'react';
+import StoreContext from './StoreContext';
 
 const styles = {
   article: {
@@ -56,7 +57,7 @@ Article.propTypes = {
 };
 
 // const ArticleContainer = (props) => {
-  
+//   const storeContext = useContext(StoreContext);
 //   return <Article {...props} store={storeContext} />;
 // };
 
@@ -64,6 +65,20 @@ Article.propTypes = {
 //   store: PropTypes.object,
 // };
 
-//const ArticleContainer = storeProvider(Article);
+const storeProvider = (Component) => {
+  
+  const WithStore = (props) => {
+      const storeContext = useContext(StoreContext);
+      return <Component {...props} store={storeContext} />;
+  }
 
-export default storeProvider(Article);
+  WithStore.contextTypes = {
+      store: PropTypes.object,
+  };
+
+  return WithStore;
+};
+
+const ArticleContainer = storeProvider(Article);
+
+export default ArticleContainer;
