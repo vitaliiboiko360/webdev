@@ -1,12 +1,12 @@
 import React from 'react';
 
-import ArticleContainer from './Article';
+import Article from './Article';
 
 const ArticleList = (props) => {
   return (
     <div>
       {Object.values(props.articles).map(article =>
-        <ArticleContainer
+        <Article
           key={article.id}
           article={article}
         />
