@@ -1,6 +1,5 @@
 import React from 'react';
 import ArticleList from '../ArticleList';
-import Article from '../Article';
 
 import { configure } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
@@ -27,7 +26,7 @@ describe('ArticleList', () => {
       />
     );
 
-    expect(wrapper.find('Article').length).toBe(2);
+    expect(wrapper.find('ArticleContainer').length).toBe(2);
 
     expect(wrapper.getElement()).toMatchSnapshot();
   });

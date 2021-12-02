@@ -55,4 +55,10 @@ Article.propTypes = {
   })
 };
 
+function extraProps(store, originalProps) {
+  return {
+    author: store.lookupAuthor(originalProps.article.authorId),
+  };
+}
+
 export default storeProvider(Article);
