@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ArticleList from './ArticleList';
+import SearchBar from './SearchBar';
 import StoreContext from './StoreContext';
 
 class App extends React.Component {
@@ -17,11 +18,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <StoreContext.Provider value={this.props.store}>  
-        <ArticleList
-          articles={this.state.articles}
-        />
-      </StoreContext.Provider>  
+      <div>
+        <StoreContext.Provider value={this.props.store}>
+          <SearchBar /> 
+          <ArticleList
+            articles={this.state.articles}
+          />
+        </StoreContext.Provider>
+      </div>
     );
   }
 }
