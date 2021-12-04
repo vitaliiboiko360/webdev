@@ -15,12 +15,15 @@ class App extends React.Component {
   //     authors: api.getAuthors(),
   //   }));
   // }
+  setSearchTerm = (searchTerm) => {
+    this.setState({searchTerm});
+  }
 
   render() {
     return (
       <div>
         <StoreContext.Provider value={this.props.store}>
-            <SearchBar />
+            <SearchBar doSearch={this.setSearchTerm} />
             <ArticleList
               articles={this.state.articles}
             />  
