@@ -1,12 +1,19 @@
 import React from 'react';
 
-const SearchBar = () => {
-    return (
-        <input 
-        type="search"
-        placeholder="search for"
-        />
-    );
+class SearchBar extends React.Component {
+    handleSearch = () => {
+        console.log(this.searchInput.value);
+    }
+    render() {
+        return (
+            <input 
+            ref={(input) => this.searchInput = input}
+            type="search"
+            placeholder="search for"
+            onChange={this.handleSearch}
+            />
+        );
+    }
 }
 
 export default SearchBar;
