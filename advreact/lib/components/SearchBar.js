@@ -1,15 +1,19 @@
 import React from 'react';
 
 class SearchBar extends React.Component {
-    handleSearch = () => {
-        console.log(this.searchInput.value);
+    state = {
+        searchTerm: '',
+    }
+    handleSearch = (event) => {
+        this.setState({searchTerm: event.target.value});
+        console.log(this.state.searchTerm);
     }
     render() {
         return (
             <input 
-            ref={(input) => this.searchInput = input}
             type="search"
             placeholder="search for"
+            value={this.state.searchTerm}
             onChange={this.handleSearch}
             />
         );
