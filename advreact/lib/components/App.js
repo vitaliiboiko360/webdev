@@ -20,10 +20,10 @@ class App extends React.Component {
     return (
       <div>
         <StoreContext.Provider value={this.props.store}>
-          <SearchBar /> 
-          <ArticleList
-            articles={this.state.articles}
-          />
+            <SearchBar />
+            <ArticleList
+              articles={this.state.articles}
+            />  
         </StoreContext.Provider>
       </div>
     );
