@@ -24,7 +24,7 @@ class App extends React.Component {
     this.setState(this.props.store.getState());
   }
   componentDidMount() {
-    this.subscriptionId = this.props.store.subscribe(onStoreChange);
+    this.subscriptionId = this.props.store.subscribe(this.onStoreChange);
   }
   componentWillUnmount() {
     this.props.store.unsubscribe(this.subscriptionId);
