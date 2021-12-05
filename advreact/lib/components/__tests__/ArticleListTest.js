@@ -1,5 +1,6 @@
 import React from 'react';
 import ArticleList from '../ArticleList';
+import Article from '../Article'
 
 import { configure } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
