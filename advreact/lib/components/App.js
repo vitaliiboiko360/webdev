@@ -17,10 +17,18 @@ class App extends React.Component {
   //     authors: api.getAuthors(),
   //   }));
   // }
-  setSearchTerm = (searchTerm) => {
-    this.setState({searchTerm});
+  // setSearchTerm = (searchTerm) => {
+  //   this.setState({searchTerm});
+  // }
+  onStoreChange = () => {
+    this.setState(this.props.store.getState());
   }
-
+  componentDidMount() {
+    this.subscriptionId = this.props.store.subscribe(onStoreChange);
+  }
+  componentWillUnmount() {
+    this.props.store.unsubscribe(this.subscriptionId);
+  }
   render() {
     let { articles, searchTerm } = this.state;
     if (searchTerm) {
@@ -31,7 +39,7 @@ class App extends React.Component {
     return (
       <div>
         <StoreContext.Provider value={this.props.store}>
-            <SearchBar doSearch={this.setSearchTerm} />
+            <SearchBar doSearch={this.props.store.setSearchTerm} />
             <ArticleList
               articles={articles}
             />  
