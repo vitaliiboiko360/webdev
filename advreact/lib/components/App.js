@@ -3,8 +3,10 @@ import React from 'react';
 import ArticleList from './ArticleList';
 import SearchBar from './SearchBar';
 import StoreContext from './StoreContext';
+import Timestamp from './Timestamp';
 
 import pickBy from 'lodash.pickby';
+import { object } from 'prop-types';
 
 class App extends React.Component {
   state = this.props.store.getState();
@@ -39,6 +41,7 @@ class App extends React.Component {
     return (
       <div>
         <StoreContext.Provider value={this.props.store}>
+            <Timestamp timestamp={this.state.timestamp} />
             <SearchBar doSearch={this.props.store.setSearchTerm} />
             <ArticleList
               articles={articles}
