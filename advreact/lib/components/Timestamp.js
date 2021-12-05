@@ -12,10 +12,10 @@ class Timestamp extends React.Component {
   }
 }
 
-// function extraProps(store) {
-//   return {
-//     timestamp: store.getState().timestamp
-//   };
-// }
+function extraProps(store) {
+  return {
+    timestamp: store.getState().timestamp
+  };
+}
 
 export default storeProvider(Timestamp);
