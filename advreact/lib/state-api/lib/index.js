@@ -31,14 +31,22 @@ class StateApi {
     delete this.subscriptions[subscriptionId];
   }
 
-  setSearchTerm = (searchTerm) => {
-  //   this.setState({searchTerm});
-    this.data.searchTerm = searchTerm;
-    this.notifySubscribers();
-  }
-
   notifySubscribers = () => {
     Object.values(this.subscriptions).forEach((cb) => cb());
+  }
+
+  mergeWithState = (stateChange) => {
+    this.data = {
+      ...this.data,
+      ...stateChange
+    }
+    this.notifySubscribers();
+  };
+
+  setSearchTerm = (searchTerm) => {
+    this.mergeWithState({
+      searchTerm,
+    });
   }
 }
 
