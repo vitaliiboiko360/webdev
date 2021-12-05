@@ -49,6 +49,14 @@ class StateApi {
       searchTerm,
     });
   }
+
+  startClock = () => {
+    setInterval(() => {
+      this.mergeWithState({
+        timestamp : new Date(),
+      });
+    }, 1000);
+  }
 }
 
 export default StateApi;

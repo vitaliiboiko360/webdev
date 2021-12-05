@@ -27,6 +27,7 @@ class App extends React.Component {
   }
   componentDidMount() {
     this.subscriptionId = this.props.store.subscribe(this.onStoreChange);
+    this.props.store.startClock();
   }
   componentWillUnmount() {
     this.props.store.unsubscribe(this.subscriptionId);
