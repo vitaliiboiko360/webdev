@@ -35,8 +35,9 @@ class App extends React.Component {
   render() {
     let { articles, searchTerm } = this.state;
     if (searchTerm) {
+      const searchRE = new RegExp(searchTerm, 'i');
       articles = pickBy(articles, (value) => {
-        return value.title.match(searchTerm) || value.body.match(searchTerm);
+        return value.title.match(searchRE) || value.body.match(searchRE);
       });
     }
     return (
