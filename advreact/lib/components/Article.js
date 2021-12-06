@@ -61,4 +61,4 @@ function extraProps(store, originalProps) {
   };
 }
 
-export default storeProvider(Article);
+export default storeProvider(extraProps)(Article);

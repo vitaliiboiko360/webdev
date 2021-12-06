@@ -44,7 +44,7 @@ class App extends React.Component {
       <div>
         <StoreContext.Provider value={this.props.store}>
             <Timestamp />
-            <SearchBar doSearch={this.props.store.setSearchTerm} />
+            <SearchBar />
             <ArticleList
               articles={articles}
             />  

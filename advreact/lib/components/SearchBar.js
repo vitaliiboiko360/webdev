@@ -1,21 +1,23 @@
 import React from 'react';
 import debounce from 'lodash.debounce';
+import storeProvider from './storeProvider';
 
-class SearchBar extends React.Component {
+class SearchBar extends React.PureComponent {
   state = {
     searchTerm: '',
   }
   doSearch = debounce(() => {
-    this.props.doSearch(this.state.searchTerm);
+    this.props.store.setSearchTerm(this.state.searchTerm);
   }, 300)
   handleSearch = (event) => {
     this.setState({ searchTerm: event.target.value }, () => {
       this.doSearch();
     });
   }
-  shouldComponentUpdate(nextProps, nextState) {
-    return true;
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   if()
+  //   return false;
+  // }
   UNSAFE_componentWillUpdate(nextProps, nextState) {
     console.log('Updating SearchBar');
   }
@@ -31,4 +33,4 @@ class SearchBar extends React.Component {
   }
 }
 
-export default SearchBar;
+export default storeProvider()(SearchBar);

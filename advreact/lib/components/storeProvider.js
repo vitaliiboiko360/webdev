@@ -1,32 +1,41 @@
 import React from 'react';
 import PropTypes from "prop-types";
-import { useContext } from 'react';
 import StoreContext from './StoreContext';
 
-// const storeProvider = (extraProps) => (Component) => {
-//   return class extends React.Component {
-//       static displayName = `${Component.name}Container`;
-//       static contextTypes = {
-//               store: PropTypes.object,
-//           };
-//       render() {
-//           const storeContext = useContext(StoreContext);
-//           return (<Component {...this.props} {...extraProps(storeContext, this.props)} store={storeContext} />);
-//       }
-//   };
-const storeProvider = (Component) => {
-  const WithStore = (props) => {
-    const storeContext = useContext(StoreContext);
-    return <Component {...props} store={storeContext} />;
-  }
-
-  WithStore.contextTypes = {
-    store: PropTypes.object,
+const storeProvider = (extraProps = () => ({})) => (Component) => {
+  return class extends React.PureComponent {
+      static contextType = StoreContext;
+      static displayName = `${Component.name}Container`;
+      onStoreChange = () => {
+        this.forceUpdate();
+      }
+      componentDidMount() {
+        this.subscriptionId = this.context.subscribe(this.onStoreChange);
+      }
+      componentWillUnmount() {
+        this.context.unsubscribe(this.subscriptionId);
+      }
+      render() {
+          return (<Component 
+            {...this.props} 
+            {...extraProps(this.context, this.props)} 
+            store={this.context} />);
+      }
   };
+}
+// const storeProvider = (Component) => {
+//   const WithStore = (props) => {
+//     const storeContext = useContext(StoreContext);
+//     return <Component {...props} store={storeContext} />;
+//   }
 
-  WithStore.displayName = `${Component.name}Container`;
+//   WithStore.contextTypes = {
+//     store: PropTypes.object,
+//   };
 
-  return WithStore;
-};
+//   WithStore.displayName = `${Component.name}Container`;
+
+//   return WithStore;
+// };
 
 export default storeProvider;
