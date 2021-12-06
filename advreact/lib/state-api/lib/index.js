@@ -28,7 +28,7 @@ class StateApi {
     return this.lastSubscriptionId;
   }
 
-  unsubcribe = (subscriptionId) => {
+  unsubscribe = (subscriptionId) => {
     delete this.subscriptions[subscriptionId];
   }
 

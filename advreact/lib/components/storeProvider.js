@@ -7,13 +7,16 @@ const storeProvider = (extraProps = () => ({})) => (Component) => {
       static contextType = StoreContext;
       static displayName = `${Component.name}Container`;
       onStoreChange = () => {
-        this.forceUpdate();
+        if (this.subscriptionId) {
+          this.forceUpdate();
+        }
       }
       componentDidMount() {
         this.subscriptionId = this.context.subscribe(this.onStoreChange);
       }
       componentWillUnmount() {
         this.context.unsubscribe(this.subscriptionId);
+        this.subscriptionId = null;
       }
       render() {
           return (<Component 
