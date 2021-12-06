@@ -6,7 +6,6 @@ import StoreContext from './StoreContext';
 import Timestamp from './Timestamp';
 
 import pickBy from 'lodash.pickby';
-import { object } from 'prop-types';
 
 class App extends React.Component {
   state = this.props.store.getState();
