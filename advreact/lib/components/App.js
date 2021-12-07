@@ -31,6 +31,13 @@ class App extends React.Component {
   componentWillUnmount() {
     this.props.store.unsubscribe(this.subscriptionId);
   }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return (
+      nextState.articles !== this.state.articles || nextState.searchTerm !== this.state.searchTerm
+    );
+  }
+
   render() {
     let { articles, searchTerm } = this.state;
     if (searchTerm) {
