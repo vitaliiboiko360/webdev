@@ -6,9 +6,15 @@ const storeProvider = (extraProps = () => ({})) => (Component) => {
   return class extends React.PureComponent {
       static contextType = StoreContext;
       static displayName = `${Component.name}Container`;
+      
+      usedState = () => {
+        return extraProps(this.context, this.props);
+      }
+      state = this.usedState();
       onStoreChange = () => {
         if (this.subscriptionId) {
-          this.forceUpdate();
+          //this.forceUpdate();
+          this.setState(this.usedState());
         }
       }
       componentDidMount() {
@@ -21,7 +27,7 @@ const storeProvider = (extraProps = () => ({})) => (Component) => {
       render() {
           return (<Component 
             {...this.props} 
-            {...extraProps(this.context, this.props)} 
+            {...this.usedState()} 
             store={this.context} />);
       }
   };

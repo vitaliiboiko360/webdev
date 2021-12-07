@@ -8,7 +8,6 @@ import Timestamp from './Timestamp';
 import pickBy from 'lodash.pickby';
 
 class App extends React.Component {
-  state = this.props.store.getState();
   // async componentDidMount() {
   //   const resp = await axios.get('/data');
   //   const api = new DataApi(resp.data);
@@ -21,8 +20,13 @@ class App extends React.Component {
   // setSearchTerm = (searchTerm) => {
   //   this.setState({searchTerm});
   // }
+  appState = () => {
+    const {articles , searchTerm} = this.props.store.getState();
+    return { articles, searchTerm };
+  }
+  state = this.appState();
   onStoreChange = () => {
-    this.setState(this.props.store.getState());
+    this.setState(this.appState);
   }
   componentDidMount() {
     this.subscriptionId = this.props.store.subscribe(this.onStoreChange);
