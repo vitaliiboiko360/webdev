@@ -1,7 +1,7 @@
 class Customer {
   name: string;
 
-  constuctor(name: string) {
+  constructor(name: string) {
     this.name = name;
   }
 
