@@ -26,3 +26,5 @@ class SpecialCustomer extends Customer {
     return "This is special VIP customer with name="+this.name;
   }
 }
+
+export default Customer;
