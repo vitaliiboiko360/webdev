@@ -8,6 +8,7 @@ let lastValue = primeNums.pop();
 
 import Book from './Book';
 import BookShelf from './BookShelf';
+import Shelf from './Shelf';
 
 
 let book1 = new Book("Alice in Wonderland");
@@ -17,3 +18,6 @@ let bookStore = new BookShelf();
 
 bookStore.addBookToCatalog(book1);
 bookStore.addBookToCatalog(book2);
+
+let bookShelf = new Shelf<Book>();
+bookShelf.addItemToCatalog(new Book("Templates in C++ by N.Josutis"));
