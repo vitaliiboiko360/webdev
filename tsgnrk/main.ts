@@ -21,3 +21,7 @@ bookStore.addBookToCatalog(book2);
 
 let bookShelf = new Shelf<Book>();
 bookShelf.addItemToCatalog(new Book("Templates in C++ by N.Josutis"));
+
+let bookshelf: Shelf<Book>;
+
+let books: Array<Book>;
