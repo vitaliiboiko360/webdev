@@ -12,7 +12,7 @@ import Shelf from './Shelf';
 
 
 let book1 = new Book("Alice in Wonderland");
-let book2 = new Book("Bob in Mandaniness");
+let book2 = new Book("Bob in Mundaneness");
 
 let bookStore = new BookShelf();
 
@@ -25,3 +25,5 @@ bookShelf.addItemToCatalog(new Book("Templates in C++ by N.Josutis"));
 let bookshelf: Shelf<Book>;
 
 let books: Array<Book>;
+
+books = [new Book("War of the World"), new Book("Martian")];
