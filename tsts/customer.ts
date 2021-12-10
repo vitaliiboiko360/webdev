@@ -1,8 +1,10 @@
 class Customer {
   name: string;
+  isActive: boolean;
 
   constructor(name: string) {
     this.name = name;
+   // this.isActive = true;
   }
 
   announce() {
@@ -17,3 +19,10 @@ let newMessage: string = firstCustomer.announce();
 
 let webHeading = document.querySelector('h1');
 webHeading.textContent = newMessage;
+
+
+class SpecialCustomer extends Customer {
+  announce() {
+    return "This is special VIP customer with name="+this.name;
+  }
+}
