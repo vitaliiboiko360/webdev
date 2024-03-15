@@ -14,6 +14,46 @@ async function myAsyncFunction() {
 }
 ```  
 
+#### Async return promise  
+```
+// wait ms milliseconds
+function wait(ms) {
+  return new Promise((r) => setTimeout(r, ms));
+}
+
+async function func() {
+  await wait(500);
+  return 'result';
+}
+```
+
+#### Async syntax  
+could be async  
+* arrow functions   
+```  
+someContainer.map(async (arg)=> {
+  // ...
+});
+```  
+
+* object methods  
+```
+let obj = {
+  async objMethod {
+    // ...
+  }
+}
+```
+
+* class methods  
+```
+class MyClass {
+  async myMethod() {
+    // ...
+  }
+}
+```  
+
 #### Promise  
 Promise is object returned by async function  
 async func starts and returns the Promise  
@@ -22,7 +62,7 @@ async func starts and returns the Promise
 fetchPromise
   .then((response) => response.json())
   .then((data) => {
-    console.log(data[0].name);
+    console.log(data);
   });
   ```
 
