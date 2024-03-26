@@ -45,7 +45,7 @@ let obj = {
 }
 ```
 
-* class methods  
+* class methods   
 ```
 class MyClass {
   async myMethod() {
@@ -54,24 +54,26 @@ class MyClass {
 }
 ```  
 
-#### Promise  
+#### Promise   
 Promise is object returned by async function  
 async func starts and returns the Promise  
 `.then()` returns promise   
+
 ```
 fetchPromise
   .then((response) => response.json())
   .then((data) => {
     console.log(data);
   });
-  ```
+```   
+
 
 #### argument.length  
 
 
 #### ... operator  
 
-sprea(...) syntax - iterable (array, string) expanded in place where zero or more arguments (elements in case of array) are expected  
+spread(...) syntax - iterable (array, string) expanded in place where zero or more arguments (elements in case of array) are expected  
 
 ```
 function func(...promises) {
@@ -80,7 +82,7 @@ function func(...promises) {
 ```  
 
 #### fetch  
-promise-based replacement for XMLHttpRequest  
+promise-based replacement for XMLHttpRequest   
 ```
 const fetchPromise = fetch('http://some.url/');  
 
