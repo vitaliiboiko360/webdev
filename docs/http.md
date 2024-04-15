@@ -1,3 +1,19 @@
+#### Common HTTP Requests  
+- GET  
+- PUT  
+- POST  
+- PATCH  
+- DELETE  
+
+#### Typical HTTP Requests  
+consists of:  
+| Verb |  
+| Header |  
+| Payload/Data |  
+
+Header is metadata about requests  
+
+
 #### DNS  
 map domain name to IP address   
 
